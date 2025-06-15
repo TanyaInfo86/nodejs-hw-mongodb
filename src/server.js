@@ -6,7 +6,7 @@ import contactsRouter from './routers/contacts.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 
-export const setupServer = (PORT) => {
+export const setupServer = (port) => {
     const app = express();
 
     app.use(express.json());
@@ -29,7 +29,7 @@ export const setupServer = (PORT) => {
     app.use(notFoundHandler);
     app.use(errorHandler);
 
-    app.listen(PORT, () => {
-        console.log(`🚀 Server is running on port ${PORT}`);
+    app.listen(port, () => {
+        console.log(`🚀 Server is running on port ${port}`);
     });
 };
