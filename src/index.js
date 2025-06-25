@@ -5,7 +5,7 @@ import { initMongoConnection } from './db/initMongoConnection.js';
 import { setupServer } from './server.js';
 import { getEnvVar } from './utils/getEnvVar.js';
 
-const PORT = Number(getEnvVar('PORT', 3000));
+const PORT = process.env.PORT || 3000;
 
 const bootstrap = async () => {
     try {
