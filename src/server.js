@@ -8,7 +8,7 @@ import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import cookieParser from 'cookie-parser';
 
-const PORT = Number(getEnvVar('PORT', '3000'));
+const PORT = Number(process.env.PORT || getEnvVar('PORT', '3000'));
 
 export const setupServer = () => {
     const app = express();
