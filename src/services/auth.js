@@ -1,4 +1,3 @@
-
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import { randomBytes } from 'crypto';
@@ -23,7 +22,6 @@ export const registerUser = async (payload) => {
         password: hashhedPassword,
     });
 };
-
 export const loginUser = async (payload) => {
     const user = await UsersCollection.findOne({ email: payload.email });
     if (!user) {
@@ -48,7 +46,6 @@ export const loginUser = async (payload) => {
         refreshTokenValidUntil: new Date(Date.now() + ONE_DAY),
     });
 };
-
 export const logoutUser = async (sessionId) => {
     await SessionsCollection.deleteOne({ _id: sessionId });
 };
@@ -64,7 +61,6 @@ const createSession = () => {
         refreshTokenValidUntil: new Date(Date.now() + ONE_DAY),
     };
 };
-
 export const refreshUsersSession = async ({ sessionId, refreshToken }) => {
     const session = await SessionsCollection.findOne({
         _id: sessionId,
@@ -129,7 +125,6 @@ export const requestResetToken = async (email) => {
         html,
     });
 };
-
 export const resetPassword = async (payload) => {
     let entries;
 
