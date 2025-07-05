@@ -10,7 +10,6 @@ export const registerUserController = async (req, res) => {
         data: user,
     });
 };
-
 export const loginUserController = async (req, res) => {
     const session = await loginUser(req.body);
 
@@ -30,7 +29,6 @@ export const loginUserController = async (req, res) => {
         },
     });
 };
-
 export const logoutUserController = async (req, res) => {
     if (req.cookies.sessionId) {
         await logoutUser(req.cookies.sessionId);
@@ -51,7 +49,6 @@ const setupSession = (res, session) => {
         expires: new Date(Date.now() + ONE_DAY),
     });
 };
-
 export const refreshUserSessionController = async (req, res) => {
     const session = await refreshUsersSession({
         sessionId: req.cookies.sessionId,
@@ -77,7 +74,6 @@ export const requestResetEmailController = async (req, res) => {
         data: {},
     });
 };
-
 export const resetPasswordController = async (req, res) => {
     await resetPassword(req.body);
     res.json({
