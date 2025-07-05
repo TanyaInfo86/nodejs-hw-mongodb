@@ -18,15 +18,12 @@ router.post(
     validateBody(registerUserSchema),
     ctrlWrapper(registerUserController),
 );
-
 router.post(
     '/login',
     validateBody(loginUserSchema),
     ctrlWrapper(loginUserController),
 );
-
 router.post('/logout', ctrlWrapper(logoutUserController));
-
 router.post('/refresh', ctrlWrapper(refreshUserSessionController));
 router.post(
     '/request-reset-email',
@@ -38,6 +35,5 @@ router.post(
     validateBody(resetPasswordSchema),
     ctrlWrapper(resetPasswordController),
 );
-
 
 export default router;
