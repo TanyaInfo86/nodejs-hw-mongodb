@@ -7,6 +7,8 @@ import { getEnvVar } from './utils/getEnvVar.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import cookieParser from 'cookie-parser';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const PORT = Number(process.env.PORT || getEnvVar('PORT', '3000'));
 
@@ -30,6 +32,8 @@ export const setupServer = () => {
             message: 'Hello world!',
         });
     });
+
+
 
     app.use(router);
 
